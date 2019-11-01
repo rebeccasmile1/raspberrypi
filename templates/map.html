@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+</head>
+<body>
+<h1 id="t"></h1>
+<script type="text/javascript">
+$(document).ready(function() {
+namespace = '/test_conn';
+<!--var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);-->
+var socket = io.connect('http://127.0.0.1:5000' + namespace);
+socket.on('server_response', function(res) {
+console.log(res.data);
+$('#t').text(res.data);
+});
+});
+
+
+<!--var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};-->
+<!-- var socket = io.connect($SCRIPT_ROOT);-->
+<!--                socket.on('connect',function()-->
+<!--                    {-->
+<!--                       socket.emit('connected');-->
+<!--                    });-->
+<!--                 socket.on('response', function(data)-->
+<!--                  {-->
+<!--                      console.log(data);-->
+<!--                      alert("receive response");-->
+<!--                      /*-->
+<!--                      if(data.code == '200'){-->
+<!--                          alert(data.param);-->
+<!--                      }-->
+<!--                      else-->
+<!--                      {-->
+<!--                          alert('Error:'+data.param);-->
+<!--                      }-->
+<!--                      */-->
+<!--                      //alert(data.param);-->
+
+<!--                  });-->
+
+<!--            $(document).ready(function(){-->
+<!--                $("#btn").click(function () {-->
+<!--                    socket.emit('request_for_response', JSON.stringify({-->
+<!--                            'ip': $("#ip").val(),-->
+<!--                            'cover': $("#cover").val(),-->
+<!--                            'gate': $("#gate").val(),-->
+<!--                    }));-->
+<!--                });-->
+<!--            });-->
+</script>
+</body>
+</html>

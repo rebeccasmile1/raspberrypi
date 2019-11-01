@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_socketio import SocketIO,emit
 from threading import Lock
 import random
@@ -19,7 +19,7 @@ thread_lock = Lock()
 
 @app.route('/')
 def index():
-    return render_template('get.html')
+    return render_template('map.html')
 
 @socketio.on('connect', namespace='/test_conn')
 def test_connect():
@@ -35,5 +35,5 @@ def background_thread():
         socketio.emit('server_response',
                       {'data': t},namespace='/test_conn')
 
-if __name__ == '__main__':
-    socketio.run(app, debug=True)
+# if __name__ == '__main__':
+#     socketio.run(app, debug=True)

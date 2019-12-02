@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify
 from flask_socketio import SocketIO,emit
 from threading import Lock
 import random
-from flask_cors import *
+from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True)

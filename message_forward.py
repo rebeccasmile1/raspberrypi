@@ -36,12 +36,8 @@ def receive():
     netloc = parse.urlsplit(referrer).netloc
     port=parse.urlsplit(referrer).port
 
-    # data = request.get_json()
+
     response = make_response("OK!")
-    # response.headers['Access-Control-Allow-Credentials'] = 'true'
-    # response.headers['Access-Control-Allow-Origin'] = "{scheme}://{netloc}".format(scheme=scheme, netloc=netloc)
-    # response.headers['Access-Control-Allow-Methods'] = 'GET,POST,OPTIONS'
-    # response.headers['Access-Control-Allow-Headers'] = 'x-requested-with,content-type,x-token'
     response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'OPTIONS,HEAD,GET,POST'
     response.headers['Access-Control-Allow-Headers'] = 'x-requested-with'
@@ -70,8 +66,8 @@ def background_thread():
         # t = random.randint(1, 100)
         socketio.emit('server_response',
                       {'data': age},namespace='/test_conn')
-if __name__ == '__main__':
-    socketio.run(app, debug=True)
+# if __name__ == '__main__':
+#     socketio.run(app, debug=True)
 
 
 

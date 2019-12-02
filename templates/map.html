@@ -12,7 +12,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
 namespace = '/test_conn';
-<!--var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);-->
 var socket = io.connect('http://127.0.0.1:5000' + namespace);
 socket.on('server_response', function(res) {
 console.log(res.data);

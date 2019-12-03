@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>VLC Web Plugin HTTP DEMO</title>
+</head>
+<body>
+<h1>VLC Web Plugin HTTP DEMO</h1>
+<object classid="clsid:9BE31822-FDAD-461B-AD51-BE1D1C159921"
+        codebase="http://download.videolan.org/pub/videolan/vlc/last/win32/axvlc.cab"
+        style="width: 640px; height: 480px;">
+  <param name="src" value="http://172.20.10.3:8090"/>
+  <param name="autostart" value="true"/>
+  <embed type="application/x-vlc-plugin" pluginspage="http://www.videolan.org"
+         width="640px"
+         height="480px"
+         src="http://172.20.10.3:8090"/>
+</object>
+</body>
+</html>

@@ -1,16 +1,23 @@
-from flask import Flask
-from flask import render_template
-import flask_cors as CORS
+from flask import Flask,jsonify,request,make_response,render_template
 
-app=Flask(__name__)
+
+from flask_cors import *
+
+# app = Flask(__name__)
+# CORS(app, supports_credentials=True)
+#定义flask
+app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-async_mode = None
-CORS(app, supports_credentials=True, resources={r'/*'})
 
-@app.route('/monitor')
+#跨域
+CORS(app, supports_credentials=True, resources={r'/*'})
+@app.route('/')
 def monitor():
     return render_template('monitor.html')
 
+@app.route('/video')
+def video():
+    return render_template('video.html')
 
-# if __name__ == '__main__':
-#     app.run()
+if __name__ == '__main__':
+    app.run()
